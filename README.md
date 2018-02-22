@@ -2,7 +2,7 @@
 Google K8S Engine. Monitoring with Prometheus and Grafana. Using Prometheus Operator by CoreOS
 
 ## GKE INIT
-We need to configure kubectl.
+First, we need to configure **kubectl**.
 ```bash
 gcloud container clusters get-credentials <cluster_name> --zone <cluster_zone> --project <project_name>
 ```
