@@ -7,8 +7,10 @@ First, we need to configure **kubectl**.
 gcloud container clusters get-credentials <cluster_name> --zone <cluster_zone> --project <project_name>
 ```
 
+```
 kubectl create serviceaccount dashboard -n default
-
+```
+```
 kubectl create clusterrolebinding dashboard-admin -n default \
   --clusterrole=cluster-admin \
   --serviceaccount=default:dashboard
@@ -59,8 +61,9 @@ kubectl get pods -l app=prometheus -o name | \
 	xargs -I{} kubectl port-forward {} 9090:9090
 
 helm install --name prometheus-operator \ --set rbacEnable=true --namespace=monitoring helm/prometheus-operator
-
+```
 # антиошибка helm
+```
 kubectl create clusterrolebinding add-on-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:default
 
 kubectl create clusterrolebinding cluster-admin-binding \
@@ -72,5 +75,7 @@ kubectl port-forward $(kubectl get pods --selector=app=grafana-74b576fb87-j9q4x 
 
 hack/cluster-monitoring/teardown
 
+```
 ## Презентация:
 https://docs.google.com/presentation/d/1IaBINi-J9a-tko76B5xOMc5Pol84kRqvIip6LmVeHho/edit?usp=sharing
+
